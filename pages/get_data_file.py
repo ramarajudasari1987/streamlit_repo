@@ -1,6 +1,5 @@
 import streamlit as st
 import openpyxl
-import psycopg2
 from openpyxl_image_loader import SheetImageLoader
 from PIL import Image
 from PIL.JpegImagePlugin import JpegImageFile
@@ -17,19 +16,7 @@ def write_file(data, filename):
     with open(filename, 'wb') as file:
         file.write(data)
 
-def create_connection():
-    # Connect to the database
-    # using the psycopg2 adapter.
-    # Pass your database name ,# username , password ,
-    # hostname and port number
-    conn = psycopg2.connect(dbname='streamlit',
-                            user='postgres',
-                            password='admin123',
-                            host='localhost',
-                            port='5432')
-    # Get the cursor object from the connection object
-    curr = conn.cursor()
-    return conn, curr
+
 
 
 def upload():
